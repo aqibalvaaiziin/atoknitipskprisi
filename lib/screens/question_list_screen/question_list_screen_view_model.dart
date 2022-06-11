@@ -63,4 +63,9 @@ abstract class QuestionListScreenViewModel extends State<QuestionListScreen> {
       loadListSoal();
     });
   }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
 }

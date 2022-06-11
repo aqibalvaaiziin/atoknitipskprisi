@@ -4,4 +4,14 @@ import './score_screen.dart';
 abstract class ScoreScreenViewModel extends State<ScoreScreen> {
   double width = 0.0;
   double height = 0.0;
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
 }

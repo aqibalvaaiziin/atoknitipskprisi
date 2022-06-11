@@ -75,11 +75,11 @@ class QuestionListScreenView extends QuestionListScreenViewModel {
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(width * 0.08),
+            padding: EdgeInsets.all(width * 0.09),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                customText(width * 0.05, widget.ujianName,
+                customText(width * 0.04, widget.ujianName,
                     color: CustomColor.brown, fw: FontWeight.w900),
                 SizedBox(height: height * 0.005),
                 customText(width * 0.04, widget.nameMapel,

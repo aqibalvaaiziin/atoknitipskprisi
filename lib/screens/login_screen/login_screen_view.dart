@@ -34,9 +34,9 @@ class LoginScreenView extends LoginScreenViewModel {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               customText(width * 0.1, "Login",
-                                  fw: FontWeight.w800),
+                                  fw: FontWeight.w800, color:CustomColor.brown),
                               customText(width * 0.04,
-                                  "Silahkan login terlebih dahulu !"),
+                                  "Silahkan login terlebih dahulu !",color:CustomColor.brown),
                             ],
                           ),
                         ),
@@ -111,7 +111,7 @@ class LoginScreenView extends LoginScreenViewModel {
       margin: EdgeInsets.only(bottom: height * 0.02),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(8),
         border: Border.all(
           color: CustomColor.brown,
           width: 1.5,
@@ -123,7 +123,7 @@ class LoginScreenView extends LoginScreenViewModel {
           obscureText: isPassword && isVisible,
           controller: controller,
           style: TextStyle(
-            fontSize: isPassword ? height * 0.04 : height * 0.023,
+            fontSize: isPassword ? height * 0.026 : height * 0.023,
             color: CustomColor.brown,
             fontFamily: "Visby",
           ),
