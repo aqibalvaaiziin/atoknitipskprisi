@@ -123,6 +123,8 @@ abstract class DetailQuestionScreenViewModel
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
+      // print(widget.soalId);
+      // print(widget.ujianId);
       loadListJawaban();
     });
   }

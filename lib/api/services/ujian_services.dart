@@ -129,4 +129,23 @@ class UjianServices {
     };
     return await dio.get("/addNilai", queryParameters: dataNilai);
   }
+
+  static Future cekNilaiSiswaByUjian(int ujianId) async {
+    SharedPreferences sp = await SharedPreferences.getInstance();
+    int siswaId = sp.getInt("siswaId")!;
+    Map<String, dynamic> dataSiswa = {
+      "siswa_id": siswaId,
+      "ujian_id": ujianId,
+    };
+    return await dio.get(
+      "/cekNilai",
+      queryParameters: dataSiswa,
+      options: Options(
+        followRedirects: false,
+        validateStatus: (status) {
+          return status! <= 500;
+        },
+      ),
+    );
+  }
 }

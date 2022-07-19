@@ -9,9 +9,9 @@ import 'package:mobile_app/widgets/route.dart';
 import './login_screen.dart';
 
 abstract class LoginScreenViewModel extends State<LoginScreen> {
-  TextEditingController email =
-      TextEditingController(text: "irfakw@mlscloud.id");
-  TextEditingController password = TextEditingController(text: "password");
+  TextEditingController email =  TextEditingController();
+  TextEditingController password = TextEditingController();
+  
   double width = 0.0;
   double height = 0.0;
   bool isVisible = true;

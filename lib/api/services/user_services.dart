@@ -31,18 +31,18 @@ class UserServices {
       // ignore: avoid_print
       print(ex.error.toString());
       if (ex.type == DioErrorType.response) {
-      // ignore: avoid_print
+        // ignore: avoid_print
         print("login form Error");
         if (ex.response!.statusCode == 404) {
-      // ignore: avoid_print
+          // ignore: avoid_print
           print("warning api");
         }
       } else if (ex.type == DioErrorType.response) {
-      // ignore: avoid_print
+        // ignore: avoid_print
         print("error default");
         throw Exception(ex.error.message);
       } else {
-      // ignore: avoid_print
+        // ignore: avoid_print
         print("timeout");
       }
     }

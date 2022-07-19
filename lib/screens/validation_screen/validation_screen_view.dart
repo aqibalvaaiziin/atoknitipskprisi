@@ -13,11 +13,65 @@ class ValidationScreenView extends ValidationScreenViewModel {
 
     return CustomScaffold(
       appBar: AppBar(
-        title: Text(widget.nameMapel), backgroundColor: CustomColor.brown,
+        title: Text(widget.nameMapel),
+        backgroundColor: CustomColor.brown,
       ),
-      body: Container(
+      body: isLoading
+          ? loaderPage()
+          : Column(
+              children: [
+                boxData(
+                  CustomColor.krem,
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Column(
+                        children: [
+                          customText(width * 0.07, "Detail Ujian : ",
+                              fw: FontWeight.w900),
+                          const SizedBox(height: 20),
+                          rowText("Ujian   : ", widget.ujianName),
+                          const SizedBox(height: 10),
+                          rowText("Mapel  : ", widget.nameMapel),
+                          const SizedBox(height: 10),
+                          rowText("Kelas   : ", widget.nameKelas)
+                        ],
+                      ),
+                      SizedBox(height: isUjian ? 0 : 20),
+                      isUjian ? const SizedBox() : buttonNavigate(),
+                    ],
+                  ),
+                ),
+                !isUjian
+                    // ignore: prefer_const_constructors
+                    ? SizedBox()
+                    : boxData(
+                        Colors.amber,
+                        Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              customText(width * 0.1, score),
+                              const SizedBox(height: 10),
+                              customText(
+                                width * 0.05,
+                                "Score Anda",
+                                fw: FontWeight.bold,
+                              )
+                            ],
+                          ),
+                        ),
+                      )
+              ],
+            ),
+    );
+  }
+
+  Widget boxData(Color boxColor, Widget child) {
+    return Container(
         width: width,
-        height: height * 0.3,
+        height: isUjian ? height * 0.2 : height * 0.3,
         padding: EdgeInsets.symmetric(
           vertical: height * 0.01,
           horizontal: width * 0.03,
@@ -27,7 +81,7 @@ class ValidationScreenView extends ValidationScreenViewModel {
           horizontal: width * 0.03,
         ),
         decoration: BoxDecoration(
-          color: CustomColor.krem,
+          color: boxColor,
           borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(5),
               topRight: Radius.circular(5),
@@ -42,28 +96,7 @@ class ValidationScreenView extends ValidationScreenViewModel {
             ),
           ],
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Column(
-              children: [
-                customText(width * 0.07, "Detail Ujian : ",
-                    fw: FontWeight.w900),
-                const SizedBox(height: 20),
-                rowText("Ujian   : ", widget.ujianName),
-                const SizedBox(height: 10),
-                rowText("Mapel  : ", widget.nameMapel),
-                const SizedBox(height: 10),
-                rowText("Kelas   : ", widget.nameKelas)
-              ],
-            ),
-            const SizedBox(height: 20),
-            buttonNavigate(),
-          ],
-        ),
-      ),
-    );
+        child: child);
   }
 
   Widget buttonNavigate() {
@@ -108,6 +141,8 @@ class ValidationScreenView extends ValidationScreenViewModel {
     );
   }
 }
+
+
 
 
 
